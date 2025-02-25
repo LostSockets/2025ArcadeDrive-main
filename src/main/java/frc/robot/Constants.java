@@ -64,6 +64,13 @@ public final class Constants {
 
   public static final class ElevatorConstants {
     public static final int kElevatorMotorPort = 5;
+
+    public static final double kmaxElevatorEncoderHeight = -24.0;
+    public static final double kminElevatorEncoderHeight = 0.0;
+    public static final double kElevatorPos0 = 0.0; //A
+    public static final double kElevatorPos1 = -8.0; //B
+    public static final double kElevatorPos2 = -22.0; //X
+    public static final double kElevatorPos3 = -10.2; //Y  
   }
 
   public static final class ArmPivotConstants {
