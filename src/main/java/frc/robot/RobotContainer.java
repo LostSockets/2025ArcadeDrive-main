@@ -12,23 +12,23 @@ package frc.robot;
 //Commands
 import frc.robot.commands.ArcadeDriveCmd;
 import frc.robot.commands.ArcadeDrivePIDHoldInPlaceCmd;
-import frc.robot.commands.ArmPivotButtonPIDCmd;
-import frc.robot.commands.ArmPivotJoyCmd;
 import frc.robot.commands.AutoDelay;
 import frc.robot.commands.AutoDriveBkwdCmd;
 import frc.robot.commands.AutoDriveFwdCmd;
+import frc.robot.commands.ShooterCmd;
 //import frc.robot.commands.ArmPivotButtonCmd;
-import frc.robot.commands.AutoPivot;
 
 
 //Subsystems
 import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.subsystems.ArmPivotSubsystem;
+import frc.robot.subsystems.ElevatorSubsystem;
+import frc.robot.subsystems.RollerSubsystem;
 
 
 //Libraries
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -42,11 +42,11 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem driveSubsystem = new DriveSubsystem();
-  //private final ArmTelescopicSubsystem armTelescopicSubsystem = new ArmTelescopicSubsystem();
-  //private final ArmPivotSubsystem armPivotSubsystem = new ArmPivotSubsystem();
+  private final RollerSubsystem rollerSubsystem = new RollerSubsystem();
+  private final ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem();
 
   private final Joystick joyDrive = new Joystick(Constants.OIConstants.kDriverJoystickPort);
-  //private final Joystick joyArm = new Joystick(Constants.OIConstants.kArmJoystickPort);
+  private final Joystick joyOperator = new Joystick(Constants.OIConstants.kOperatorJoystickPort);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -54,8 +54,12 @@ public class RobotContainer {
     //Default commands
     driveSubsystem.setDefaultCommand(new ArcadeDriveCmd(driveSubsystem, () -> -joyDrive.getRawAxis(Constants.OIConstants.kArcadeDriveSpeedAxis), () -> -joyDrive.getRawAxis(Constants.OIConstants.kArcadeDriveTurnAxis)));
     configureBindings();
-    //armPivotSubsystem.setDefaultCommand(new ArmPivotCmd(armPivotSubsystem, () -> -joyArm.getRawAxis(Constants.OIConstants.kArmPivotAxis)));
-    //armPivotSubsystem.setDefaultCommand(new ArmPivotCmd(armPivotSubsystem, 0));
+    rollerSubsystem.setDefaultCommand(new ShooterCmd(rollerSubsystem,
+                                                    () -> joyOperator.getRawAxis(Constants.OIConstants.kRollerForwardAxis),
+                                                    () -> -joyOperator.getRawAxis(Constants.OIConstants.kRollerReverseAxis),
+                                                    () -> joyOperator.getRawButton(Constants.OIConstants.kRollerForward),
+                                                    () -> joyOperator.getRawButton(Constants.OIConstants.kRollerReverse)));
+
   }
 
   private void configureBindings() {
@@ -70,35 +74,6 @@ public class RobotContainer {
   }
 
   public Command getAutonomousCommand() {
-
-    /*
-    //Autonomous 1a: Raise to top position using ParallelCommandGroup 
-    return new SequentialCommandGroup(
-      new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight1),
-      new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance),
-      new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight2),
-      new ParallelCommandGroup ( //
-        new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance), new SequentialCommandGroup( //
-          new AutoDelay(1), new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight3)) //
-      )
-    */
-
-    /* Autonomous 1b: Raise to top position without using ParallelCommandGroup
-    return new SequentialCommandGroup(
-      new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight1),
-      new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance),
-      new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight2),
-      new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance), 
-      new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight3) //
-    )
-    */
-
-    /* Autonomous 2: bump cube back, drive forward 
-    return new SequentialCommandGroup(
-      new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAuto2DriveBkwdDistance),
-      new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAuto2DriveFwdDistance)
-    )
-      */
 
     /* Autonomous 3: starting arm position resting on back */
     return new SequentialCommandGroup(
