@@ -63,7 +63,7 @@ public final class Constants {
   }
 
   public static final class ElevatorConstants {
-    public static final int kElevatorMotorPort = 23;
+
   }
 
   public static final class RollerConstants {

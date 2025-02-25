@@ -18,8 +18,9 @@ import frc.robot.Constants;
 
 public class ElevatorSubsystem extends SubsystemBase {
 
-    private final SparkMax elevatorMotor = new SparkMax(Constants.ElevatorConstants.kElevatorMotorPort, MotorType.kBrushless);
-    private final RelativeEncoder elevatorEncoder = elevatorMotor.getEncoder();
+    private final SparkMax elevatorMotor1 = new SparkMax(Constants.ElevatorConstants.kElevatorMotorPort1, MotorType.kBrushed);
+    private final SparkMax elevatorMotor2 = new SparkMax(Constants.ElevatorConstants.kElevatorMotorPort2, MotorType.kBrushed);
+    private final RelativeEncoder elevatorEncoder = elevatorMotor1.getEncoder();
 
 
     public double getEncoderMeters() {
@@ -37,7 +38,8 @@ public class ElevatorSubsystem extends SubsystemBase {
     public void setMotor(double speed) {
         //armPivotMotorFollow.follow(armPivotMotorLead);
         SmartDashboard.putNumber("pivot speed", speed);
-        elevatorMotor.set(speed);
+        elevatorMotor1.set(speed);
+        elevatorMotor2.set(speed);
     }
 
 }
