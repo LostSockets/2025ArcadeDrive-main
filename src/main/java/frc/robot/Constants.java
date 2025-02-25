@@ -63,7 +63,9 @@ public final class Constants {
   }
 
   public static final class ElevatorConstants {
-    public static final int kElevatorMotorPort = 5;
+    public static final int kElevatorMotorPort1 = 23;
+    public static final int kElevatorMotorPort2 = 24;
+
 
     public static final double kmaxElevatorEncoderHeight = -24.0;
     public static final double kminElevatorEncoderHeight = 0.0;
