@@ -63,48 +63,20 @@ public final class Constants {
   }
 
   public static final class ElevatorConstants {
-    public static final int kElevatorMotorPort1 = 23;
-    public static final int kElevatorMotorPort2 = 24;
-
-
-    public static final double kmaxElevatorEncoderHeight = -24.0;
-    public static final double kminElevatorEncoderHeight = 0.0;
-    public static final double kElevatorPos0 = 0.0; //A
-    public static final double kElevatorPos1 = -8.0; //B
-    public static final double kElevatorPos2 = -22.0; //X
-    public static final double kElevatorPos3 = -10.2; //Y  
-  }
-
-  public static final class ArmPivotConstants {
-
-    public static final int kArmPivotMotorPort1 = 5;
-    public static final int kArmPivotMotorPort2 = 6;
-
-    public static final double kArmPivotSpeedPercentage = 0.5;
-    public static final double kArmPivotSpeedPercentageThrottled = 0.15;
- 
-    public static final double kP = 0.1; //0.08; // PID numbers need to be figured out still!!!!!!!!
-    public static final double kI = 0;
-    public static final double kD = 0;
-
-    public static final double kPButton = 0.2; //0.09;
-    public static final double kIButton = 0;
-    public static final double kDButton = 0;
-  
-    //NOTE: Values below are for start position DOWN.
-    public static final double kmaxArmPivotEncoderHeight = -24.0;
-    public static final double kminArmPivotEncoderHeight = 0.0;
-    public static final double kArmPivotPos0 = 0.0; //A
-    public static final double kArmPivotPos1 = -8.0; //B
-    public static final double kArmPivotPos2 = -22.0; //X
-    public static final double kArmPivotPos3 = -10.2; //Y
 
   }
+
+  public static final class RollerConstants {
+    public static final int kRollerMotorPort = 22;
+    public static final double RUN_SPEED_FORWARD = 1;
+    public static final double RUN_SPEED_REVERSE = -1;
+  }
+
 
    public static final class OIConstants {
 
     public static final int kDriverJoystickPort = 0;
-    public static final int kArmJoystickPort = 1;
+    public static final int kOperatorJoystickPort = 1;
 
     public static final int kArcadeDriveSpeedAxis = 1;
     public static final int kArcadeDriveTurnAxis = 4;
@@ -113,18 +85,23 @@ public final class Constants {
     public static final int kArcadeDriveTurbo = 6;
     public static final int kArcadeDriveMellow = 5;
 
-    public static final int kArmTelescopicExtend = 6;
-    public static final int kArmTelescopicRetract = 5;
+    public static final int kRollerForward = 6; //change to whatever button driver wants later
+    public static final int kRollerReverse = 5; // again, placeholder
+    public static final int kRollerForwardAxis = 3;
+    public static final int kRollerReverseAxis = 2;
+
+    //public static final int kArmTelescopicExtend = 6;
+    //public static final int kArmTelescopicRetract = 5;
 
     //public static final int kArmPivotDown = 1;
     //public static final int kArmPivotUp = 2;
 
-    public static final int kArmPivotPIDPos0Button = 1;
-    public static final int kArmPivotPIDPos1Button = 2;
-    public static final int kArmPivotPIDPos2Button = 3;
-    public static final int kArmPivotPIDPos3Button = 4;
+    //public static final int kArmPivotPIDPos0Button = 1;
+    //public static final int kArmPivotPIDPos1Button = 2;
+    //public static final int kArmPivotPIDPos2Button = 3;  arm delete later
+    //public static final int kArmPivotPIDPos3Button = 4;
 
-    public static final int kArmPivotAxis = 1;
+    //public static final int kArmPivotAxis = 1;
 
   }
  
