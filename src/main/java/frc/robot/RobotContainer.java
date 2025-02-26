@@ -15,6 +15,8 @@ import frc.robot.commands.ArcadeDrivePIDHoldInPlaceCmd;
 import frc.robot.commands.AutoDelay;
 import frc.robot.commands.AutoDriveBkwdCmd;
 import frc.robot.commands.AutoDriveFwdCmd;
+//import frc.robot.commands.ElevatorButtonCmd;
+import frc.robot.commands.ElevatorJoyCmd;
 import frc.robot.commands.ShooterCmd;
 //import frc.robot.commands.ArmPivotButtonCmd;
 
@@ -53,6 +55,9 @@ public class RobotContainer {
 
     //Default commands
     driveSubsystem.setDefaultCommand(new ArcadeDriveCmd(driveSubsystem, () -> -joyDrive.getRawAxis(Constants.OIConstants.kArcadeDriveSpeedAxis), () -> -joyDrive.getRawAxis(Constants.OIConstants.kArcadeDriveTurnAxis)));
+    //elevatorSubsystem.setDefaultCommand(new ElevatorButtonCmd(elevatorSubsystem, () -> -joyOperator.getRawAxis(Constants.OIConstants.kElevatorAxis)));
+    elevatorSubsystem.setDefaultCommand(new ElevatorJoyCmd(elevatorSubsystem, () -> -joyOperator.getRawAxis(Constants.OIConstants.kElevatorAxis)));
+
     configureBindings();
     rollerSubsystem.setDefaultCommand(new ShooterCmd(rollerSubsystem,
                                                     () -> joyOperator.getRawAxis(Constants.OIConstants.kRollerForwardAxis),

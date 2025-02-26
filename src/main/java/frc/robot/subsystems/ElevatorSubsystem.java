@@ -18,8 +18,8 @@ import frc.robot.Constants;
 
 public class ElevatorSubsystem extends SubsystemBase {
 
-    private final SparkMax elevatorMotor1 = new SparkMax(Constants.ElevatorConstants.kElevatorMotorPort1, MotorType.kBrushed);
-    private final SparkMax elevatorMotor2 = new SparkMax(Constants.ElevatorConstants.kElevatorMotorPort2, MotorType.kBrushed);
+    private final SparkMax elevatorMotor1 = new SparkMax(Constants.ElevatorConstants.kElevatorMotorPort1, MotorType.kBrushless);
+    private final SparkMax elevatorMotor2 = new SparkMax(Constants.ElevatorConstants.kElevatorMotorPort2, MotorType.kBrushless);
     private final RelativeEncoder elevatorEncoder = elevatorMotor1.getEncoder();
 
 
@@ -32,14 +32,14 @@ public class ElevatorSubsystem extends SubsystemBase {
 
     @Override
     public void periodic() {
-        SmartDashboard.putNumber("ElevatorEncoder Value",  getEncoderMeters());
+        SmartDashboard.putNumber("ElevatorEncoder Value",  getEncoderMeters());   //why does it start at 41.xxxxxx?
     }
 
     public void setMotor(double speed) {
         //armPivotMotorFollow.follow(armPivotMotorLead);
         SmartDashboard.putNumber("pivot speed", speed);
-        elevatorMotor1.set(speed);
-        elevatorMotor2.set(speed);
+        elevatorMotor1.set(-speed);
+        elevatorMotor2.set(-speed);
     }
 
 }

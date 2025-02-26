@@ -9,11 +9,11 @@ import frc.robot.subsystems.ElevatorSubsystem;
 public class ElevatorPIDCmd extends Command {
     private final ElevatorSubsystem elevatorSubsystem;
     private final PIDController pidController;
-    private final Joystick joyArm = new Joystick(Constants.OIConstants.kArmJoystickPort);
+    private final Joystick joyOperator = new Joystick(Constants.OIConstants.kOperatorJoystickPort);
 
     public ElevatorPIDCmd(ElevatorSubsystem elevatorSubsystem, double setpoint) {
         this.elevatorSubsystem = elevatorSubsystem;
-        this.pidController = new PIDController(Constants.ArmPivotConstants.kPButton,Constants.ArmPivotConstants.kIButton,Constants.ArmPivotConstants.kDButton);
+        this.pidController = new PIDController(Constants.ElevatorConstants.kPButton,Constants.ElevatorConstants.kIButton,Constants.ElevatorConstants.kDButton);
         pidController.setSetpoint(setpoint);
         addRequirements(elevatorSubsystem);
     }
@@ -43,7 +43,7 @@ public class ElevatorPIDCmd extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (Math.abs(joyArm.getRawAxis(Constants.OIConstants.kArmPivotAxis)) > 0.05) {
+    if (Math.abs(joyOperator.getRawAxis(Constants.OIConstants.kElevatorAxis)) > 0.05) {
       return true;
     } else {
       return false;

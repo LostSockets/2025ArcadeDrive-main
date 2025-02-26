@@ -64,6 +64,22 @@ public final class Constants {
 
   public static final class ElevatorConstants {
 
+    public static final int kElevatorMotorPort1 = 23;
+    public static final int kElevatorMotorPort2 = 24;
+
+
+    public static final double kmaxElevatorEncoderHeight = -24.0;
+    public static final double kminElevatorEncoderHeight = 0.0;
+    public static final double kElevatorPos0 = 0.0; //A
+    public static final double kElevatorPos1 = -8.0; //B
+    public static final double kElevatorPos2 = -22.0; //X
+    public static final double kElevatorPos3 = -10.2; //Y  
+
+    public static final double kPButton = 0.15; 
+    public static final double kIButton = 0;
+    public static final double kDButton = 0;
+    public static final double kElevatorSpeedPercentage = 1;
+
   }
 
   public static final class RollerConstants {
@@ -89,6 +105,8 @@ public final class Constants {
     public static final int kRollerReverse = 5; // again, placeholder
     public static final int kRollerForwardAxis = 3;
     public static final int kRollerReverseAxis = 2;
+
+    public static final int kElevatorAxis = 5;
 
     //public static final int kArmTelescopicExtend = 6;
     //public static final int kArmTelescopicRetract = 5;
