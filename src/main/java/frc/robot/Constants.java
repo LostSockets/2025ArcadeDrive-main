@@ -49,16 +49,12 @@ public final class Constants {
 
 
     public static final double kAutoDriveFwdSpeed = 1.5;
-    public static final double kAutoDriveFwdDistance = 1.0;
+    public static final double kAutoDriveFwdDistance = 3.0;
     public static final double kAutoDriveBkwdSpeed = -0.8;
     public static final double kAutoDriveBkwdDistance = -15.0; //CHANGE TO -15.0 FOR COMP!!!!
 
     public static final double kAuto2DriveFwdDistance = 12.0;
     public static final double kAuto2DriveBkwdDistance = -1.2;
-
-    public static final double kAutoPivotHeight1 = -10.5;
-    public static final double kAutoPivotHeight2 = -9.5;
-    public static final double kAutoPivotHeight3 = -12.0;
 
   }
 
@@ -68,7 +64,7 @@ public final class Constants {
     public static final int kElevatorMotorPort2 = 24;
 
 
-    public static final double kmaxElevatorEncoderHeight = 100.0;  // 119.0 for comp
+    public static final double kmaxElevatorEncoderHeight = 100.0;  // 119.0 for comp        NEED TO TEST!
     public static final double kminElevatorEncoderHeight = 1.0;  // 0.0 for comp
     public static final double kElevatorPIDPos0 = 1.0; //A
     public static final double kElevatorPIDPos1 = 30.0; //B
@@ -94,6 +90,8 @@ public final class Constants {
     public static final int kDriverJoystickPort = 0;
     public static final int kOperatorJoystickPort = 1;
 
+
+    //DRIVER
     public static final int kArcadeDriveSpeedAxis = 1;
     public static final int kArcadeDriveTurnAxis = 4;
     public static final int kArcadeDriveHoldInPlace = 1;
@@ -101,6 +99,8 @@ public final class Constants {
     public static final int kArcadeDriveTurbo = 6;
     public static final int kArcadeDriveMellow = 5;
 
+
+    //OPERATOR
     public static final int kRollerForward = 6; //change to whatever button driver wants later
     public static final int kRollerReverse = 5; // again, placeholder
     public static final int kRollerForwardAxis = 3;
@@ -111,19 +111,6 @@ public final class Constants {
     public static final int kElevatorPIDPos1Button = 2;
     public static final int kElevatorPIDPos2Button = 3;
     public static final int kElevatorPIDPos3Button = 4;
-
-    //public static final int kArmTelescopicExtend = 6;
-    //public static final int kArmTelescopicRetract = 5;
-
-    //public static final int kArmPivotDown = 1;
-    //public static final int kArmPivotUp = 2;
-
-    //public static final int kArmPivotPIDPos0Button = 1;
-    //public static final int kArmPivotPIDPos1Button = 2;
-    //public static final int kArmPivotPIDPos2Button = 3;  arm delete later
-    //public static final int kArmPivotPIDPos3Button = 4;
-
-    //public static final int kArmPivotAxis = 1;
 
   }
  

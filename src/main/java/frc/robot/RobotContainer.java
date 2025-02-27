@@ -81,12 +81,13 @@ public class RobotContainer {
 
   public Command getAutonomousCommand() {
 
-    /* Autonomous 3: starting arm position resting on back */
+    /* drive forward and wait */
     return new SequentialCommandGroup(
       new AutoDriveFwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveFwdDistance),
-      //new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight2),
-      new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance)
-      
+      new AutoDelay(10)
+       //new AutoPivot(armPivotSubsystem, Constants.AutoConstants.kAutoPivotHeight2),
+      //new AutoDriveBkwdCmd(driveSubsystem, Constants.AutoConstants.kAutoDriveBkwdDistance)
+     
 
     
     /*
