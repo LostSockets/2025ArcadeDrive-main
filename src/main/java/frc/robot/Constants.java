@@ -68,8 +68,8 @@ public final class Constants {
     public static final int kElevatorMotorPort2 = 24;
 
 
-    public static final double kmaxElevatorEncoderHeight = 45.0;  // 119.0 for comp
-    public static final double kminElevatorEncoderHeight = 10.0;  // 0.0 for comp
+    public static final double kmaxElevatorEncoderHeight = 100.0;  // 119.0 for comp
+    public static final double kminElevatorEncoderHeight = 1.0;  // 0.0 for comp
     public static final double kElevatorPIDPos0 = 1.0; //A
     public static final double kElevatorPIDPos1 = 30.0; //B
     public static final double kElevatorPIDPos2 = 60.0; //X
