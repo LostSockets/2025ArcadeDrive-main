@@ -17,6 +17,7 @@ import frc.robot.commands.AutoDriveBkwdCmd;
 import frc.robot.commands.AutoDriveFwdCmd;
 //import frc.robot.commands.ElevatorButtonCmd;
 import frc.robot.commands.ElevatorJoyCmd;
+import frc.robot.commands.ElevatorPIDCmd;
 import frc.robot.commands.ShooterCmd;
 //import frc.robot.commands.ArmPivotButtonCmd;
 
@@ -68,10 +69,10 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    //new JoystickButton(joyArm, Constants.OIConstants.kArmPivotPIDPos0Button).onTrue(new ArmPivotButtonPIDCmd(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos0));
-    //new JoystickButton(joyArm, Constants.OIConstants.kArmPivotPIDPos1Button).onTrue(new ArmPivotButtonPIDCmd(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos1));
-    //new JoystickButton(joyArm, Constants.OIConstants.kArmPivotPIDPos2Button).onTrue(new ArmPivotButtonPIDCmd(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos2));
-    //new JoystickButton(joyArm, Constants.OIConstants.kArmPivotPIDPos3Button).onTrue(new ArmPivotButtonPIDCmd(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotPos3));
+    new JoystickButton(joyOperator, Constants.OIConstants.kElevatorPIDPos0Button).onTrue(new ElevatorPIDCmd(elevatorSubsystem, Constants.ElevatorConstants.kElevatorPIDPos0));
+    new JoystickButton(joyOperator, Constants.OIConstants.kElevatorPIDPos1Button).onTrue(new ElevatorPIDCmd(elevatorSubsystem, Constants.ElevatorConstants.kElevatorPIDPos1));
+    new JoystickButton(joyOperator, Constants.OIConstants.kElevatorPIDPos2Button).onTrue(new ElevatorPIDCmd(elevatorSubsystem, Constants.ElevatorConstants.kElevatorPIDPos2));
+    new JoystickButton(joyOperator, Constants.OIConstants.kElevatorPIDPos3Button).onTrue(new ElevatorPIDCmd(elevatorSubsystem, Constants.ElevatorConstants.kElevatorPIDPos3));
     //armPivotSubsystem.setDefaultCommand(new ArmPivotJoyCmd(armPivotSubsystem, () -> -joyArm.getRawAxis(Constants.OIConstants.kArmPivotAxis)));
     //new JoystickButton(joyArm, Constants.OIConstants.kArmPivotDown).whileTrue(new ArmPivotButtonCmd(armPivotSubsystem, Constants.ArmPivotConstants.kArmPivotSpeedPercentageThrottled));
     //new JoystickButton(joyArm, Constants.OIConstants.kArmPivotUp).whileTrue(new ArmPivotButtonCmd(armPivotSubsystem, -1*Constants.ArmPivotConstants.kArmPivotSpeedPercentageThrottled));

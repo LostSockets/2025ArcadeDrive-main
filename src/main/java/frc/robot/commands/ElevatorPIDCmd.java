@@ -29,8 +29,8 @@ public class ElevatorPIDCmd extends Command {
   public void execute() {
  
     double speed = pidController.calculate(elevatorSubsystem.getEncoderMeters());
-    elevatorSubsystem.setMotor(speed);
-    System.out.println("Arm speed = " + speed);
+    elevatorSubsystem.setMotor(-speed);
+    System.out.println("Elevator speed = " + speed);
 }
 
   // Called once the command ends or is interrupted.

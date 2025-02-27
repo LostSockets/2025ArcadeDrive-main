@@ -32,12 +32,13 @@ public class ElevatorSubsystem extends SubsystemBase {
 
     @Override
     public void periodic() {
-        SmartDashboard.putNumber("ElevatorEncoder Value",  getEncoderMeters());   //why does it start at 41.xxxxxx?
+        SmartDashboard.putNumber("ElevatorEncoder Value",  getEncoderMeters());
+
     }
 
     public void setMotor(double speed) {
         //armPivotMotorFollow.follow(armPivotMotorLead);
-        SmartDashboard.putNumber("pivot speed", speed);
+        SmartDashboard.putNumber("Elevator speed", speed);
         elevatorMotor1.set(-speed);
         elevatorMotor2.set(-speed);
     }

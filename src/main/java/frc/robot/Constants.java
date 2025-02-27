@@ -68,17 +68,17 @@ public final class Constants {
     public static final int kElevatorMotorPort2 = 24;
 
 
-    public static final double kmaxElevatorEncoderHeight = -24.0;
-    public static final double kminElevatorEncoderHeight = 0.0;
-    public static final double kElevatorPos0 = 0.0; //A
-    public static final double kElevatorPos1 = -8.0; //B
-    public static final double kElevatorPos2 = -22.0; //X
-    public static final double kElevatorPos3 = -10.2; //Y  
+    public static final double kmaxElevatorEncoderHeight = 45.0;  // 119.0 for comp
+    public static final double kminElevatorEncoderHeight = 10.0;  // 0.0 for comp
+    public static final double kElevatorPIDPos0 = 1.0; //A
+    public static final double kElevatorPIDPos1 = 30.0; //B
+    public static final double kElevatorPIDPos2 = 60.0; //X
+    public static final double kElevatorPIDPos3 = 100.0; //Y  // set to ~118 for comp?
 
-    public static final double kPButton = 0.15; 
+    public static final double kPButton = 0.07; 
     public static final double kIButton = 0;
     public static final double kDButton = 0;
-    public static final double kElevatorSpeedPercentage = 1;
+    public static final double kElevatorSpeedPercentage = 0.5;
 
   }
 
@@ -107,6 +107,10 @@ public final class Constants {
     public static final int kRollerReverseAxis = 2;
 
     public static final int kElevatorAxis = 5;
+    public static final int kElevatorPIDPos0Button = 1;
+    public static final int kElevatorPIDPos1Button = 2;
+    public static final int kElevatorPIDPos2Button = 3;
+    public static final int kElevatorPIDPos3Button = 4;
 
     //public static final int kArmTelescopicExtend = 6;
     //public static final int kArmTelescopicRetract = 5;
